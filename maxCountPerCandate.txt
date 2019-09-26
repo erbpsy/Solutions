@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string answer = "";
+            string[] votes = { "Alex",
+                                "Michael",
+                                "Harry",
+                                "Dave",
+                                "Michael",
+                                "Victor",
+                                "Harry",
+                                "Alex",
+                                "Mary",
+                                "Mary" };
+            answer = votes.ToList().GroupBy(i => i).OrderByDescending(x => x.Count()).ThenByDescending(x => x.Key).FirstOrDefault().Key;
+            //int maxCountPerCandate = 0;
+            //foreach (var item in result)
+            //{
+            //    maxCountPerCandate = item.Count();
+            //    break;
+            //}
+            //  if (result != null)
+            //   answer = result.FirstOrDefault().Key;
+            // Get those candidate whose vote is 2
+            //answer = result.Where(x => x.Count() == maxCountPerCandate).OrderByDescending(x => x.Key).FirstOrDefault().Key;
+
+            Console.Write(answer);
+            Console.Write("\n");
+            Console.Read();
+        }
+    }
+
+
+}
+
+
+
+
